@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Discover Bali's best attractions — ancient sea temples, sacred monkey forests, active volcanoes, iconic rice terraces, and stunning cliff temples." />
+    <title>Attractions - Discover Bali</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .attraction-card {
+            background: var(--color-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .attraction-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .attraction-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .attraction-card:hover .attraction-img img {
+            transform: scale(1.09);
+        }
+
+        .attraction-type {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .attraction-difficulty {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.55);
+            color: var(--color-white);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .attraction-body {
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .attraction-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .attraction-location {
+            font-size: 0.82rem;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .attraction-body p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+        }
+
+        .attraction-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .attraction-info {
+            display: flex;
+            gap: 12px;
+        }
+
+        .info-pill {
+            font-size: 0.78rem;
+            color: var(--color-text-light);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .highlight-strip {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            padding: var(--spacing-2xl) 0;
+            margin: var(--spacing-4xl) 0 0;
+        }
+
+        .highlight-inner {
+            display: flex;
+            gap: var(--spacing-3xl);
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .highlight-item {
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .highlight-item span:first-child {
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .highlight-item strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .highlight-item p {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 160px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-logo" aria-label="Discover Bali - Home">
+                    <i class="fas fa-leaf" style="color:#0F4C5C;"></i> Discover Bali
+                </a>
+                <ul class="nav-links" role="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attractions.html" class="active" aria-current="page">Attractions</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-teal btn-sm nav-cta">Plan Your Trip</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero hero-sm" aria-label="Attractions hero banner">
+            <img src="https://www.agoda.com/wp-content/uploads/2024/08/Sangeh-Monkey-Forest-featured.jpg"
+                alt="Tanah Lot sea temple silhouetted against a dramatic orange and purple sunset in Bali"
+                class="hero-bg" loading="eager" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content page-hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <span aria-current="page">Attractions</span>
+                </nav>
+                <div class="hero-badge"><i class="fas fa-gopuram"></i> Must-See Places</div>
+                <h1 class="hero-title">Explore Bali's Hidden Gems</h1>
+                <p class="hero-subtitle">
+                    Ancient temples, sacred forests, volcanic peaks and crystal lagoons — Bali's wonders never end
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== ATTRACTIONS GRID ===== -->
+        <section class="section" aria-labelledby="attractions-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Top Picks</span>
+                    <h2 class="section-title" id="attractions-heading">Bali's Most Iconic Attractions</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Hand-picked by our local experts — these are the unmissable experiences
+                        every Bali visitor should have.</p>
+                </header>
+
+                <div class="attractions-grid">
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://finnsbeachclub.com/wp-content/uploads/2023/03/tanah-lot-temple-bali-1024x576.jpg"
+                                alt="Tanah Lot temple perched on a rocky outcrop surrounded by ocean waves at sunset"
+                                loading="lazy" />
+                            <span class="attraction-type">Temple</span>
+                            <span class="attraction-difficulty">All Ages</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Tanah Lot Temple</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Tabanan Regency, West Bali</span>
+                            </div>
+                            <p>One of Bali's most iconic landmarks, Tanah Lot is a 16th-century sea temple dramatically
+                                perched on a rocky islet. Best visited at sunset when the temple silhouettes against a
+                                blazing sky — a truly magical sight. The temple is especially sacred during Balinese sea
+                                turtle ceremonies.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>2–3 hrs</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>~$5</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.8 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★★</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.8</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=700&q=80"
+                                alt="Sacred Monkey Forest Ubud with long-tailed macaques among ancient stone temple statues"
+                                loading="lazy" />
+                            <span class="attraction-type">Nature</span>
+                            <span class="attraction-difficulty">Easy</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Ubud Monkey Forest</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Ubud, Gianyar Regency</span>
+                            </div>
+                            <p>A sacred Balinese Hindu sanctuary home to over 1,000 Balinese long-tailed macaques, set
+                                in a dense ancient forest with moss-covered stone temples. An extraordinary place to
+                                observe wildlife in a spiritual setting, with three main temples dating back to the 14th
+                                century.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>1.5–2 hrs</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>~$8</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.7 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★★</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.7</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?w=700&q=80"
+                                alt="Mount Batur active volcano at sunrise with caldera lake visible below"
+                                loading="lazy" />
+                            <span class="attraction-type">Adventure</span>
+                            <span class="attraction-difficulty">Moderate</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Mount Batur</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Kintamani, Bangli Regency</span>
+                            </div>
+                            <p>An active stratovolcano rising 1,717m above sea level, Mount Batur offers Bali's most
+                                thrilling sunrise trek. Depart at 3am to reach the summit by dawn and watch the sun rise
+                                above a sea of clouds over the vast volcanic caldera. The views are absolutely
+                                breathtaking.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>Full Day</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>~$35</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.9 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★★</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.9</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=700&q=80"
+                                alt="Seminyak Beach at golden hour with beach clubs, palm trees and gentle waves"
+                                loading="lazy" />
+                            <span class="attraction-type">Beach</span>
+                            <span class="attraction-difficulty">Easy</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Seminyak Beach</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Seminyak, Badung Regency</span>
+                            </div>
+                            <p>Bali's most stylish beach strip stretching for miles of golden sand, lined with chic
+                                beach clubs like Ku De Ta and Potato Head. Perfect for sunset cocktails, casual beach
+                                dining, and gentle swimming. The legendary double six sunset is not to be missed by any
+                                visitor.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>Half Day</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>Free</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.8 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★★</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.8</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://media.cntraveler.com/photos/5e35bdf00e2bfd0008a03691/master/pass/Tegallalang-GettyImages-515480864.jpg"
+                                alt="Tegalalang rice terraces with emerald green stepped paddies and palm trees in Ubud Bali"
+                                loading="lazy" />
+                            <span class="attraction-type">Culture</span>
+                            <span class="attraction-difficulty">Easy</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Tegalalang Rice Terraces</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Tegalalang, Gianyar Regency</span>
+                            </div>
+                            <p>Bali's most photographed landscape — sweeping terraced rice paddies sculpted into steep
+                                hillsides using the traditional Subak irrigation system, a UNESCO World Heritage
+                                practice. Walk among the paddies at dawn when the light is soft and mist rises from the
+                                valley below.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>2 hrs</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>~$3</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.7 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★☆</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.7</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="attraction-card">
+                        <div class="attraction-img">
+                            <img src="https://www.onayaresorts.com/wp-content/cache/seraphinite-accelerator/s/m/d/img/73ad953201ee5f87e570cf00fc6076a1.10bd4.webp"
+                                alt="Uluwatu Temple perched on dramatic cliffs above the Indian Ocean at sunset in Bali"
+                                loading="lazy" />
+                            <span class="attraction-type">Temple</span>
+                            <span class="attraction-difficulty">Easy</span>
+                        </div>
+                        <div class="attraction-body">
+                            <h3>Uluwatu Temple</h3>
+                            <div class="attraction-location">
+                                <span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Pecatu, Badung Regency</span>
+                            </div>
+                            <p>Perched 70 metres above the crashing Indian Ocean on sheer limestone cliffs, Pura Luhur
+                                Uluwatu is one of Bali's six directional temples. The nightly Kecak fire dance performed
+                                at sunset against the ocean backdrop is one of the most spectacular cultural shows in
+                                Asia.</p>
+                            <div class="attraction-footer">
+                                <div class="attraction-info">
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-clock"></i></span>2–3 hrs</span>
+                                    <span class="info-pill"><span aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>~$8</span>
+                                </div>
+                                <div>
+                                    <div class="rating" aria-label="Rating: 4.9 out of 5 stars">
+                                        <span class="stars" aria-hidden="true">★★★★★</span>
+                                        <span style="font-size:0.85rem;color:var(--color-text-light);">4.9</span>
+                                    </div>
+                                    <a href="contact.html" class="link-arrow"
+                                        style="margin-top:8px;display:inline-flex;">Learn More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HIGHLIGHT STRIP ===== -->
+        <div class="highlight-strip" role="complementary" aria-label="Attraction highlights">
+            <div class="container">
+                <div class="highlight-inner">
+                    <div class="highlight-item">
+                        <span aria-hidden="true"><i class="fas fa-gopuram"></i></span>
+                        <strong>1,000+ Temples</strong>
+                        <p>Bali has more temples than houses — a sacred island through and through</p>
+                    </div>
+                    <div class="highlight-item">
+                        <span aria-hidden="true"><i class="fas fa-mountain"></i></span>
+                        <strong>2 Active Volcanoes</strong>
+                        <p>Mount Agung &amp; Mount Batur dominate the dramatic skyline</p>
+                    </div>
+                    <div class="highlight-item">
+                        <span aria-hidden="true"><i class="fas fa-water"></i></span>
+                        <strong>World-Class Diving</strong>
+                        <p>SS Liberty wreck, manta rays &amp; stunning coral in crystal waters</p>
+                    </div>
+                    <div class="highlight-item">
+                        <span aria-hidden="true"><i class="fas fa-masks-theater"></i></span>
+                        <strong>Living Culture</strong>
+                        <p>Daily ceremonies, Kecak dances &amp; ancient arts still practiced</p>
+                    </div>
+                    <div class="highlight-item">
+                        <span aria-hidden="true"><i class="fas fa-leaf"></i></span>
+                        <strong>UNESCO Heritage</strong>
+                        <p>Subak irrigation and cultural landscape — a world heritage site</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CTA ===== -->
+        <section class="section text-center" aria-labelledby="att-cta-heading">
+            <div class="container">
+                <span class="section-label">Ready to Explore?</span>
+                <h2 class="section-title" id="att-cta-heading">Book a Guided Tour</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle" style="margin-bottom:32px;">
+                    Our expert local guides will take you off the beaten path and bring Bali's stories to life.
+                </p>
+                <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn btn-primary">Book a Tour</a>
+                    <a href="accommodation.html" class="btn btn-teal">Find Accommodation</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-leaf"></i> Discover Bali</div>
+                    <p>Your trusted guide to the Island of the Gods. We've been connecting travellers with authentic
+                        Bali experiences since 2009, with a commitment to responsible tourism and local community
+                        support.</p>
+                    <div class="footer-social" role="list" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="Follow us on Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Facebook" role="listitem"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="Watch us on YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="attractions.html">Attractions</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="food.html">Food Guide</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <ul role="list">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Responsible Tourism</a></li>
+                        <li><a href="#">Press &amp; Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <address style="font-style:normal;">
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><span>Jl. Laksmana No. 22,
+                                Seminyak, Bali 80361</span></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-phone"></i></span><a
+                                href="tel:+623611234567">+62 361 123 4567</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-envelope"></i></span><a
+                                href="mailto:hello@discoverbali.com">hello@discoverbali.com</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-clock"></i></span><span>Mon–Fri 9AM–6PM
+                                WITA</span></div>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Discover Bali. All rights reserved.</p>
+            
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top back-to-top-always" aria-label="Back to top">↑</a>
+
+</body>
+
+</html>

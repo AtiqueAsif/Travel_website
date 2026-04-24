@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Essential Bali travel tips — best time to visit, budgeting, transport, what to pack, safety, local customs, and emergency contacts for your trip to Bali." />
+    <title>Travel Tips - Discover Bali</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .emergency-table-section {
+            max-width: 600px;
+        }
+
+        .season-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .season-card {
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            border: 1.5px solid;
+        }
+
+        .season-dry {
+            background: linear-gradient(135deg, #eaf5ff, #d6eeff);
+            border-color: #90caee;
+        }
+
+        .season-wet {
+            background: linear-gradient(135deg, #f0f8ee, #e2f5de);
+            border-color: #93d48b;
+        }
+
+        .season-card h3 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .season-dry h3 {
+            color: #1a5c8a;
+        }
+
+        .season-wet h3 {
+            color: #1a6b2a;
+        }
+
+        .season-card p {
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        .season-months {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .budget-bars {
+            margin-top: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .budget-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .budget-bar-label {
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 600;
+            width: 80px;
+            flex-shrink: 0;
+            color: var(--color-text);
+        }
+
+        .budget-bar-track {
+            flex: 1;
+            height: 10px;
+            background: var(--color-bg-alt);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .budget-bar-fill {
+            height: 100%;
+            border-radius: var(--radius-full);
+        }
+
+        .fill-budget {
+            background: #4a9e6b;
+            width: 25%;
+        }
+
+        .fill-mid {
+            background: #2b7cb8;
+            width: 55%;
+        }
+
+        .fill-luxury {
+            background: var(--color-secondary);
+            width: 100%;
+        }
+
+        .budget-bar-amount {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--color-text);
+            width: 60px;
+            text-align: right;
+        }
+
+        @media (max-width: 480px) {
+            .season-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-logo" aria-label="Discover Bali - Home">
+                    <i class="fas fa-leaf" style="color:#0F4C5C;"></i> Discover Bali
+                </a>
+                <ul class="nav-links" role="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attractions.html">Attractions</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="tips.html" class="active" aria-current="page">Tips</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-teal btn-sm nav-cta">Plan Your Trip</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero hero-sm" aria-label="Travel tips hero">
+            <img src="https://www.oyorooms.com/blog/wp-content/uploads/2019/09/bali.jpg"
+                alt="Traveller with backpack overlooking Bali temple and rice fields" class="hero-bg" loading="eager" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content page-hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <span aria-current="page">Travel Tips</span>
+                </nav>
+                <div class="hero-badge"><i class="fas fa-clipboard"></i> Insider Knowledge</div>
+                <h1 class="hero-title">Essential Bali Travel Guide</h1>
+                <p class="hero-subtitle">
+                    Everything you need to know before you go — from visas to volcanic etiquette
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== TIPS GRID ===== -->
+        <section class="section" aria-labelledby="tips-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Before You Go</span>
+                    <h2 class="section-title" id="tips-heading">Essential Travel Tips</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Our local experts share the tips they wish every visitor knew before
+                        arriving in Bali.</p>
+                </header>
+
+                <div class="tips-grid">
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-calendar"></i></span>
+                        <h3>Best Time to Visit</h3>
+                        <p>Bali has two seasons. The dry season (April–October) is ideal for outdoor activities,
+                            trekking, and beach days. The wet season (November–March) brings daily showers but stunning
+                            green landscapes, fewer crowds, and better hotel rates.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> July and August are peak months — book accommodation and tours at
+                            least 3 months ahead. May–June offers the best balance of weather and value.
+                        </div>
+                        <div class="season-grid">
+                            <div class="season-card season-dry">
+                                <div class="season-months"><i class="fas fa-sun"></i> April – October</div>
+                                <h3>Dry Season</h3>
+                                <p>Best for beaches, trekking, and water sports. Clear skies, low humidity.</p>
+                            </div>
+                            <div class="season-card season-wet">
+                                <div class="season-months"><i class="fas fa-cloud-rain"></i> November – March</div>
+                                <h3>Wet Season</h3>
+                                <p>Lush and green. Morning rain only. Fewer tourists, lower prices.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-dollar-sign"></i></span>
+                        <h3>Money &amp; Budget</h3>
+                        <p>Bali suits every budget. The Indonesian Rupiah (IDR) is the local currency. Withdraw cash
+                            from ATMs in major towns — they're plentiful. Credit cards are accepted at most hotels,
+                            restaurants, and shops. Always carry small bills for warungs, markets, and temple donations.
+                        </p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> Exchange money at authorised money changers (PT Dirgahayu has fair
+                            rates). Avoid touts offering "best rates" on the street — they use sleight of hand tricks.
+                        </div>
+                        <div class="budget-bars" role="list" aria-label="Daily budget comparison">
+                            <div class="budget-bar" role="listitem">
+                                <span class="budget-bar-label">Budget</span>
+                                <div class="budget-bar-track">
+                                    <div class="budget-bar-fill fill-budget"></div>
+                                </div>
+                                <span class="budget-bar-amount">$30/day</span>
+                            </div>
+                            <div class="budget-bar" role="listitem">
+                                <span class="budget-bar-label">Mid-Range</span>
+                                <div class="budget-bar-track">
+                                    <div class="budget-bar-fill fill-mid"></div>
+                                </div>
+                                <span class="budget-bar-amount">$80/day</span>
+                            </div>
+                            <div class="budget-bar" role="listitem">
+                                <span class="budget-bar-label">Luxury</span>
+                                <div class="budget-bar-track">
+                                    <div class="budget-bar-fill fill-luxury"></div>
+                                </div>
+                                <span class="budget-bar-amount">$150+</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-car"></i></span>
+                        <h3>Getting Around Bali</h3>
+                        <p>Bali has no reliable public transport, so getting around requires planning. Scooter rental
+                            ($5–8/day) gives maximum freedom but requires confidence and an international driving
+                            permit. Hiring a private driver ($40–60/day) is the most comfortable option for families and
+                            tourists.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> Download Gojek and Grab apps before you land — they're the most
+                            affordable and reliable way to get short-distance rides in urban areas like Kuta, Seminyak,
+                            and Ubud.
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-shirt"></i></span>
+                        <h3>What to Pack</h3>
+                        <p>Bali is tropical year-round (26–32°C), so pack light, breathable fabrics. However, temples
+                            require covered shoulders and knees — a sarong (which you can buy for $2 at any market)
+                            solves this instantly. Don't forget reef-safe sunscreen, as regular sunscreen harms Bali's
+                            coral reefs.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> Bring a portable power bank — Bali's power can be unreliable in
+                            more remote areas. Pack a reusable water bottle with a filter — reducing plastic waste is
+                            vital for the island's environment.
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-shield"></i></span>
+                        <h3>Safety Tips</h3>
+                        <p>Bali is generally very safe for travellers. The main risks are traffic accidents (always wear
+                            a helmet on scooters), petty theft in crowded tourist areas, and water-borne illness from
+                            untreated tap water. Drink only bottled or filtered water and avoid ice in local warungs.
+                        </p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> Comprehensive travel insurance is essential — include emergency
+                            medical evacuation cover. Bali's hospitals are adequate but serious cases are flown to
+                            Singapore or Australia.
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-hands-praying"></i></span>
+                        <h3>Local Customs &amp; Etiquette</h3>
+                        <p>Bali is a deeply spiritual Hindu island and cultural sensitivity is essential. Remove
+                            footwear before entering temples and homes. Always accept offerings with your right hand.
+                            Never point your feet toward someone, and never touch anyone on the head — it is considered
+                            deeply disrespectful.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> If you encounter a temple ceremony on the road, stop your vehicle
+                            and wait respectfully — never drive through a procession. This will earn you enormous
+                            respect from the Balinese people.
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-mobile"></i></span>
+                        <h3>Useful Apps</h3>
+                        <p>Download these essential apps before you arrive: <strong>Gojek</strong> and
+                            <strong>Grab</strong> for ride-hailing and food delivery; <strong>Google Maps</strong>
+                            (works offline in Bali); <strong>XE Currency</strong> for real-time exchange rates; and
+                            <strong>WhatsApp</strong> which virtually every local business uses for bookings and
+                            communication.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> Buy a local SIM card (Telkomsel or XL Axiata) at the airport for
+                            ~$5 with generous data — you'll save a fortune on international roaming and WhatsApp calls.
+                        </div>
+                    </article>
+
+                    <article class="tip-card">
+                        <span class="tip-icon" aria-hidden="true"><i class="fas fa-hospital"></i></span>
+                        <h3>Health Considerations</h3>
+                        <p>Consult your doctor 6–8 weeks before travel. Recommended vaccinations include: Hepatitis A
+                            &amp; B, Typhoid, Tetanus, and Rabies (if planning rural activities). Use DEET-based
+                            mosquito repellent, especially during the wet season, to protect against dengue fever. There
+                            is no malaria risk in Bali.</p>
+                        <div class="pro-tip">
+                            <strong>Pro Tip:</strong> BIMC Hospital in Kuta and Seminyak is Bali's best international
+                            medical facility and has 24/7 emergency care. Save their number: +62 361 761263 before you
+                            land.
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DOS & DON'TS ===== -->
+        <section class="section section-alt" aria-labelledby="dos-donts-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Cultural Respect</span>
+                    <h2 class="section-title" id="dos-donts-heading">Dos &amp; Don'ts in Bali</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Travelling respectfully makes your experience richer and the Balinese
+                        more welcoming.</p>
+                </header>
+
+                <div class="dos-donts-grid">
+
+                    <div class="dos-card">
+                        <h3>✓ Dos</h3>
+                        <ul class="dos-donts-list" role="list">
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Dress modestly (covered shoulders &amp; knees) when visiting temples and
+                                    villages</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Wear a sarong and sash at temple entrances — they are often provided free at the
+                                    gate</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Remove shoes before entering homes, temples, and many local restaurants</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Accept food and drink with both hands or your right hand only — a sign of
+                                    respect</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Step over temple offerings (canang sari) on the ground rather than walking through
+                                    them</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Bargain politely and with a smile at markets — it is expected and part of the
+                                    culture</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Drink only bottled or filtered water throughout your stay</span>
+                            </li>
+                            <li>
+                                <span class="do-icon" aria-hidden="true">✓</span>
+                                <span>Support local businesses, warungs, and artisans over international chains</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="donts-card">
+                        <h3>✗ Don'ts</h3>
+                        <ul class="dos-donts-list" role="list">
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't enter a temple during menstruation — Balinese temples have this cultural
+                                    rule</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't touch someone on the head — the head is considered sacred in Balinese
+                                    Hinduism</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't point at temples, people, or sacred objects with your index finger — use
+                                    your full hand</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't climb on temple statues or sit on shrine walls for photos — deeply
+                                    disrespectful</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't take photos of worshippers during active ceremonies without
+                                    permission</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't use single-use plastics — Bali has a serious marine plastic pollution
+                                    problem</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't ride a scooter without a helmet — it's both dangerous and illegal</span>
+                            </li>
+                            <li>
+                                <span class="dont-icon" aria-hidden="true">✗</span>
+                                <span>Don't discard offerings or interfere with religious ceremonies or
+                                    processions</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EMERGENCY CONTACTS ===== -->
+        <section class="section" aria-labelledby="emergency-heading">
+            <div class="container">
+                <div
+                    style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-4xl);align-items:start;flex-wrap:wrap;">
+
+                    <div>
+                        <span class="section-label">Stay Safe</span>
+                        <h2 class="section-title" id="emergency-heading">Emergency Contacts</h2>
+                        <div class="divider divider-left"></div>
+                        <p style="margin-bottom:var(--spacing-xl);font-size:0.95rem;">
+                            Save these numbers to your phone before you travel. In any emergency, stay calm, call the
+                            relevant service, and contact your travel insurer immediately.
+                        </p>
+
+                        <div class="table-wrap emergency-table-section" role="region"
+                            aria-label="Emergency contact numbers">
+                            <table>
+                                <caption class="sr-only"
+                                    style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
+                                    Emergency contact numbers for Bali</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Service</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>🚔 Police</td>
+                                        <td><strong>110</strong></td>
+                                        <td>National emergency</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🚑 Ambulance</td>
+                                        <td><strong>118</strong></td>
+                                        <td>Medical emergencies</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🚒 Fire Brigade</td>
+                                        <td><strong>113</strong></td>
+                                        <td>Fire emergencies</td>
+                                    </tr>
+                                    <tr>
+                                        <td>📞 Tourist Help</td>
+                                        <td><strong>0361-7809990</strong></td>
+                                        <td>Tourist Police Bali</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🏥 BIMC Hospital</td>
+                                        <td><strong>+62 361 761263</strong></td>
+                                        <td>24hr international hospital</td>
+                                    </tr>
+                                    <tr>
+                                        <td>🆘 Search &amp; Rescue</td>
+                                        <td><strong>115</strong></td>
+                                        <td>SAR operations</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="section-label">Visa &amp; Entry</span>
+                        <h2 class="section-title">Visa Requirements</h2>
+                        <div class="divider divider-left"></div>
+                        <p style="margin-bottom:var(--spacing-md);font-size:0.95rem;">
+                            Most nationalities can enter Indonesia visa-free for up to 30 days, or can obtain a Visa on
+                            Arrival (VOA) for 30 days (extendable once for another 30 days) at Ngurah Rai International
+                            Airport.
+                        </p>
+
+                        <div style="display:flex;flex-direction:column;gap:var(--spacing-md);">
+                            <div class="tip-card" style="padding:var(--spacing-lg);">
+                                <h3 style="font-size:1rem;margin-bottom:8px;">🆓 Visa-Free Access</h3>
+                                <p style="font-size:0.88rem;">Citizens of many countries (UK, EU, USA, Australia, Japan,
+                                    etc.) get 30 days visa-free entry. Check the official Indonesian immigration website
+                                    for the updated list.</p>
+                            </div>
+                            <div class="tip-card" style="padding:var(--spacing-lg);">
+                                <h3 style="font-size:1rem;margin-bottom:8px;">🏷️ Visa on Arrival (VOA)</h3>
+                                <p style="font-size:0.88rem;">IDR 500,000 (~$32 USD) available at Ngurah Rai Airport.
+                                    Valid 30 days, extendable once to 60 days total. Pay by card or cash. Queue is
+                                    usually fast.</p>
+                            </div>
+                            <div class="tip-card" style="padding:var(--spacing-lg);">
+                                <h3 style="font-size:1rem;margin-bottom:8px;">📄 Passport Validity</h3>
+                                <p style="font-size:0.88rem;">Your passport must be valid for at least 6 months beyond
+                                    your intended departure date from Indonesia. Ensure this before booking your
+                                    flights.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WARNING BOX ===== -->
+        <section class="section section-alt" aria-labelledby="advisory-heading">
+            <div class="container">
+                <div class="warning-box" role="alert" aria-live="polite">
+                    <div class="warning-box-icon" aria-hidden="true">⚠️</div>
+                    <div>
+                        <h3 id="advisory-heading">Important Travel Advisory</h3>
+                        <p>
+                            <strong>Mount Agung and Mount Batur:</strong> Both are active volcanoes with periodic
+                            eruption alerts. Always check the Indonesian volcanology agency (PVMBG) status before
+                            trekking. Respect all exclusion zones and follow your guide's instructions at all times.
+                        </p>
+                        <p style="margin-top:var(--spacing-sm);">
+                            <strong>Riptides:</strong> Bali's ocean currents can be deadly. Only swim at patrolled
+                            beaches and always obey flag warnings. Red-and-yellow flags indicate patrolled areas; a red
+                            flag means do not enter the water. The unpatrolled beaches of Uluwatu and Nusa Penida are
+                            particularly hazardous.
+                        </p>
+                        <p style="margin-top:var(--spacing-sm);">
+                            <strong>Drug Laws:</strong> Indonesia has an extremely strict zero-tolerance drug policy.
+                            Possession of even small quantities can result in lengthy prison sentences or worse. No
+                            exceptions, no leniency for tourists.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section text-center" aria-labelledby="tips-cta-heading">
+            <div class="container">
+                <span class="section-label">All Set?</span>
+                <h2 class="section-title" id="tips-cta-heading">Start Planning Your Bali Adventure</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle" style="margin-bottom:32px;">
+                    Now you know the essentials — let us take care of the rest. Contact our expert team for a
+                    personalised trip itinerary.
+                </p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-leaf"></i> Discover Bali</div>
+                    <p>Your trusted guide to the Island of the Gods. We've been connecting travellers with authentic
+                        Bali experiences since 2009, with a commitment to responsible tourism and local community
+                        support.</p>
+                    <div class="footer-social" role="list" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="Follow us on Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Facebook" role="listitem"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="Watch us on YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="attractions.html">Attractions</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="food.html">Food Guide</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <ul role="list">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Responsible Tourism</a></li>
+                        <li><a href="#">Press &amp; Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <address style="font-style:normal;">
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><span>Jl. Laksmana No. 22,
+                                Seminyak, Bali 80361</span></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-phone"></i></span><a
+                                href="tel:+623611234567">+62 361 123 4567</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-envelope"></i></span><a
+                                href="mailto:hello@discoverbali.com">hello@discoverbali.com</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-clock"></i></span><span>Mon–Fri 9AM–6PM
+                                WITA</span></div>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Discover Bali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top back-to-top-always" aria-label="Back to top">↑</a>
+
+</body>
+
+</html>

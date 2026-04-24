@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Discover Bali's incredible food scene — from street food to fine dining. A complete guide to Balinese cuisine, must-try dishes, and the best restaurants." />
+    <title>Food Guide - Discover Bali</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .cuisine-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+            margin-bottom: var(--spacing-4xl);
+        }
+
+        .cuisine-intro-img {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 380px;
+        }
+
+        .cuisine-intro-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cuisine-intro-text h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cuisine-intro-text p {
+            margin-bottom: var(--spacing-md);
+            font-size: 0.97rem;
+        }
+
+        .cuisine-fact {
+            display: flex;
+            gap: var(--spacing-md);
+            background: rgba(15, 76, 92, 0.06);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .cuisine-fact span:first-child {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .cuisine-fact p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .chili {
+            color: #e53e3e;
+            font-size: 0.95rem;
+        }
+
+        .food-price-badge {
+            background: rgba(15, 76, 92, 0.07);
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        .sweet-tag {
+            background: rgba(255, 193, 7, 0.12);
+            color: #b8860b;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.78rem;
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        @media (max-width: 768px) {
+            .cuisine-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .cuisine-intro-img {
+                height: 260px;
+            }
+        }
+
+        .street-food-banner {
+            background: linear-gradient(135deg, #1a3a25 0%, #0F4C5C 100%);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-3xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+            margin: var(--spacing-4xl) 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .street-food-banner::before {
+            content: '\f2e7';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 10rem;
+            opacity: 0.05;
+        }
+
+        .street-food-text h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .street-food-text p {
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .street-food-img {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .street-food-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .street-food-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-logo" aria-label="Discover Bali - Home">
+                    <i class="fas fa-leaf" style="color:#0F4C5C;"></i> Discover Bali
+                </a>
+                <ul class="nav-links" role="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attractions.html">Attractions</a></li>
+                    <li><a href="accommodation.html">Accommodation</a></li>
+                    <li><a href="food.html" class="active" aria-current="page">Food</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-teal btn-sm nav-cta">Plan Your Trip</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero hero-sm" aria-label="Food guide hero">
+            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=1800&q=80&auto=format&fit=crop"
+                alt="Colourful spread of traditional Balinese food including nasi goreng, satay, and tropical fruit"
+                class="hero-bg" loading="eager" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content page-hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <span aria-current="page">Food Guide</span>
+                </nav>
+                <div class="hero-badge"><i class="fas fa-utensils"></i> Culinary Guide</div>
+                <h1 class="hero-title">Taste the Flavours of Bali</h1>
+                <p class="hero-subtitle">
+                    From smoky roadside satay to ceremonial feasts — Balinese cuisine is a journey for all the senses
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== CUISINE INTRODUCTION ===== -->
+        <section class="section" aria-labelledby="cuisine-intro-heading">
+            <div class="container">
+                <div class="cuisine-intro">
+                    <div class="cuisine-intro-img">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&auto=format&fit=crop"
+                            alt="Balinese warung restaurant with traditional wooden furniture and tropical garden setting"
+                            loading="lazy" />
+                    </div>
+                    <div class="cuisine-intro-text">
+                        <span class="section-label">About Balinese Food</span>
+                        <h2 id="cuisine-intro-heading">A Cuisine Shaped by Temple &amp; Tradition</h2>
+                        <div class="divider divider-left"></div>
+                        <p>
+                            Balinese cuisine is a vibrant tapestry woven from Hindu ritual, fertile volcanic soil, and
+                            centuries of spice trade influence. Unlike most Indonesian cooking, Balinese food is not
+                            just sustenance — it is ceremony. Offerings of food are presented to the gods multiple times
+                            daily, and certain dishes are reserved exclusively for religious celebrations.
+                        </p>
+                        <p>
+                            The cuisine is defined by its <em>base gede</em> — a complex spice paste of shallots,
+                            garlic, galangal, turmeric, lemongrass, candlenuts, and more — pounded fresh each day.
+                            Coconut is used in every form: oil, milk, grated flesh, and sugar. The heat comes from a
+                            generous hand with fresh bird's eye chillies.
+                        </p>
+                        <div class="cuisine-fact">
+                            <span aria-hidden="true"><i class="fas fa-lightbulb"></i></span>
+                            <p><strong>Did you know?</strong> Babi Guling (suckling pig) is considered a sacred dish in
+                                Bali, historically prepared only for religious ceremonies. Today it's also served in
+                                warungs, but the ceremony remains deeply spiritual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOD CARDS GRID ===== -->
+        <section class="section section-alt" aria-labelledby="dishes-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Must Try</span>
+                    <h2 class="section-title" id="dishes-heading">Essential Balinese Dishes</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Six iconic dishes that define the flavours of Bali — each one a window
+                        into the island's rich culinary heritage.</p>
+                </header>
+
+                <div class="food-grid">
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80&auto=format&fit=crop"
+                                alt="Nasi goreng Indonesian fried rice with egg, vegetables, and crackers on a banana leaf"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Nasi Goreng</h3>
+                            <p class="food-subtitle">Indonesian Fried Rice</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                Bali's most beloved comfort food — wok-tossed day-old rice with shallots, garlic, sweet
+                                soy sauce, chilli, and topped with a perfectly fried egg. Every warung does it
+                                differently, but it's always deeply satisfying.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="Spice level: medium (2 out of 3 chillis)">
+                                    <span>Spice:</span>
+                                    <span class="chili" aria-hidden="true"><i class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i></span>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $5 to $8">$5 – $8</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://thewonderspace.com/_next/image?url=https%3A%2F%2Fblog.thewonderspace.com%2Fwp-content%2Fuploads%2F2026%2F02%2Fthe-Best-Babi-Guling-in-Bali.jpeg&w=2048&q=75"
+                                alt="Babi guling Balinese suckling pig served on a plate with rice and vegetables"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Babi Guling</h3>
+                            <p class="food-subtitle">Balinese Suckling Pig</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                The crown jewel of Balinese cuisine — a whole young pig stuffed with a spice paste of
+                                turmeric, lemongrass, and galangal, then slowly rotated over a wood fire for hours until
+                                the skin is glass-crisp and golden. A cultural institution.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="Spice level: hot (3 out of 3 chillis)">
+                                    <span>Spice:</span>
+                                    <span class="chili" aria-hidden="true"><i class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i></span>
+                                    <span>Hot</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $8 to $12">$8 – $12</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80&auto=format&fit=crop"
+                                alt="Sate lilit Balinese satay made with minced fish on lemongrass skewers over charcoal grill"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Sate Lilit</h3>
+                            <p class="food-subtitle">Balinese Minced Satay</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                Unlike mainland satay, Sate Lilit is made by wrapping spiced minced fish or chicken
+                                around thick lemongrass stalks, then grilling over coconut-husk coals. The result is
+                                incredibly fragrant, juicy, and aromatic — a true Balinese speciality.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="Spice level: mild (1 out of 3 chillis)">
+                                    <span>Spice:</span>
+                                    <span class="chili" aria-hidden="true"><i class="fas fa-pepper-hot"></i></span>
+                                    <span>Mild</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $4 to $7">$4 – $7</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80&auto=format&fit=crop"
+                                alt="Bebek betutu Balinese stuffed roasted duck wrapped in banana leaves served with rice"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Bebek Betutu</h3>
+                            <p class="food-subtitle">Slow-Roasted Stuffed Duck</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                A ceremonial Balinese dish of whole duck packed with base gede spice paste and cassava
+                                leaves, wrapped in banana leaves, then slow-cooked in rice husks for up to 12 hours. The
+                                result is impossibly tender, fragrant, and deeply complex in flavour.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="Spice level: medium (2 out of 3 chillis)">
+                                    <span>Spice:</span>
+                                    <span class="chili" aria-hidden="true"><i class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i></span>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $12 to $18">$12 – $18</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80&auto=format&fit=crop"
+                                alt="Lawar traditional Balinese mixed vegetable and coconut salad with fresh herbs"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Lawar</h3>
+                            <p class="food-subtitle">Balinese Mixed Vegetable Salad</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                A traditional Balinese salad of finely chopped vegetables, minced meat or fish, grated
+                                coconut, and an aromatic spice mix. Lawar is central to every Balinese feast and
+                                ceremony. Try Lawar Putih (white lawar) for a lighter, vegetarian version.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="Spice level: medium (2 out of 3 chillis)">
+                                    <span>Spice:</span>
+                                    <span class="chili" aria-hidden="true"><i class="fas fa-pepper-hot"></i><i class="fas fa-pepper-hot"></i></span>
+                                    <span>Medium</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $3 to $5">$3 – $5</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                    <article class="food-card">
+                        <div class="food-card-img">
+                            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80&auto=format&fit=crop"
+                                alt="Dadar gulung green pandan crepes rolled with sweet coconut and palm sugar filling"
+                                loading="lazy" />
+                        </div>
+                        <div class="food-card-body">
+                            <h3>Dadar Gulung</h3>
+                            <p class="food-subtitle">Pandan Coconut Crêpe</p>
+                            <p style="font-size:0.9rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                Bali's most beautiful dessert — thin, vivid-green pandan-flavoured crêpes rolled around
+                                a sweet filling of grated coconut and palm sugar (gula Bali). A delicately sweet,
+                                fragrant treat sold at every traditional market and a perfect conclusion to any Balinese
+                                meal.
+                            </p>
+                            <div class="food-meta">
+                                <div class="spice-level" aria-label="No spice, sweet dish">
+                                    <span>Spice:</span>
+                                    <span class="sweet-tag" aria-label="Sweet, not spicy"><i class="fas fa-candy-cane"></i> Sweet</span>
+                                </div>
+                                <span class="food-price-badge" aria-label="Price range: $2 to $4">$2 – $4</span>
+                            </div>
+                            <a href="contact.html" class="link-arrow">Try this →</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== STREET FOOD BANNER ===== -->
+        <section class="section" aria-labelledby="street-food-heading">
+            <div class="container">
+                <div class="street-food-banner">
+                    <div class="street-food-text">
+                        <span class="section-label" style="color:#ffc299;">After Dark</span>
+                        <h2 id="street-food-heading">Explore Bali's Night Markets</h2>
+                        <p>Bali's <em>pasar malam</em> (night markets) are where the real culinary magic happens. Dozens
+                            of vendors set up under string lights, selling everything from crispy martabak to fragrant
+                            nasi campur. The Gianyar Night Market is legendary — locals and travellers queue together
+                            for the same outstanding food at street prices.</p>
+                        <a href="contact.html" class="btn btn-primary">Join a Food Tour</a>
+                    </div>
+                    <div class="street-food-img">
+                        <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?w=600&q=80&auto=format&fit=crop"
+                            alt="Colourful night market food stalls with glowing lights and vendors cooking street food"
+                            loading="lazy" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESTAURANTS ===== -->
+        <section class="section section-alt" aria-labelledby="restaurants-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Dining Out</span>
+                    <h2 class="section-title" id="restaurants-heading">Must-Visit Restaurants in Bali</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">From rustic family warungs to elevated fine dining — our curated list of
+                        the very best tables in Bali.</p>
+                </header>
+
+                <div class="restaurant-list">
+
+                    <div class="restaurant-item">
+                        <div class="restaurant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                        <div class="restaurant-info">
+                            <h4>Locavore</h4>
+                            <p>Ubud, Central Bali</p>
+                            <div class="restaurant-tags">
+                                <span class="r-tag">Fine Dining</span>
+                                <span class="r-tag">Farm-to-Table</span>
+                                <span class="r-tag">$$$$</span>
+                            </div>
+                            <p style="font-size:0.82rem;color:var(--color-text-light);margin-top:6px;">
+                                Asia's Top 50 Restaurants. Hyper-local Indonesian ingredients elevated to world-class
+                                cuisine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-item">
+                        <div class="restaurant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div class="restaurant-info">
+                            <h4>Warung Babi Guling Ibu Oka</h4>
+                            <p>Ubud, Central Bali</p>
+                            <div class="restaurant-tags">
+                                <span class="r-tag">Warung</span>
+                                <span class="r-tag">Traditional</span>
+                                <span class="r-tag">$</span>
+                            </div>
+                            <p style="font-size:0.82rem;color:var(--color-text-light);margin-top:6px;">
+                                Legendary babi guling, made famous by Anthony Bourdain. Queues out the door every day —
+                                worth every minute.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-item">
+                        <div class="restaurant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                        <div class="restaurant-info">
+                            <h4>Merah Putih</h4>
+                            <p>Seminyak, South Bali</p>
+                            <div class="restaurant-tags">
+                                <span class="r-tag">Modern Indonesian</span>
+                                <span class="r-tag">$$$</span>
+                            </div>
+                            <p style="font-size:0.82rem;color:var(--color-text-light);margin-top:6px;">
+                                Stunning bamboo cathedral architecture housing the best modern Indonesian cooking in
+                                Seminyak.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-item">
+                        <div class="restaurant-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <div class="restaurant-info">
+                            <h4>Mozaic Restaurant</h4>
+                            <p>Ubud, Central Bali</p>
+                            <div class="restaurant-tags">
+                                <span class="r-tag">French-Balinese</span>
+                                <span class="r-tag">Tasting Menu</span>
+                                <span class="r-tag">$$$$</span>
+                            </div>
+                            <p style="font-size:0.82rem;color:var(--color-text-light);margin-top:6px;">
+                                Award-winning tasting menus blending French technique with Balinese ingredients — in a
+                                beautiful tropical garden.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section text-center" aria-labelledby="food-cta-heading">
+            <div class="container">
+                <span class="section-label">Cook Like a Local</span>
+                <h2 class="section-title" id="food-cta-heading">Join a Balinese Cooking Class</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle" style="margin-bottom:32px;">
+                    Visit a morning market, learn to pound fresh spice paste, and cook a traditional Balinese feast with
+                    a local chef in their family home.
+                </p>
+                <a href="contact.html" class="btn btn-primary">Book a Cooking Class</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-leaf"></i> Discover Bali</div>
+                    <p>Your trusted guide to the Island of the Gods. We've been connecting travellers with authentic
+                        Bali experiences since 2009, with a commitment to responsible tourism and local community
+                        support.</p>
+                    <div class="footer-social" role="list" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="Follow us on Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Facebook" role="listitem"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="Watch us on YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="attractions.html">Attractions</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="food.html">Food Guide</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <ul role="list">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Responsible Tourism</a></li>
+                        <li><a href="#">Press &amp; Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <address style="font-style:normal;">
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><span>Jl. Laksmana No. 22,
+                                Seminyak, Bali 80361</span></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-phone"></i></span><a
+                                href="tel:+623611234567">+62 361 123 4567</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-envelope"></i></span><a
+                                href="mailto:hello@discoverbali.com">hello@discoverbali.com</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-clock"></i></span><span>Mon–Fri 9AM–6PM
+                                WITA</span></div>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Discover Bali. All rights reserved. </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top back-to-top-always" aria-label="Back to top">↑</a>
+
+</body>
+
+</html>

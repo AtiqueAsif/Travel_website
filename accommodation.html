@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Find the perfect place to stay in Bali — luxury resorts, eco lodges, boutique hotels, and budget hostels. Compare hotels, prices, and amenities." />
+    <title>Accommodation - Discover Bali</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .search-bar-wrapper {
+            background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 60%);
+            padding-bottom: var(--spacing-2xl);
+        }
+
+        .section-intro {
+            max-width: 700px;
+        }
+
+        .hotel-star-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .price-tag {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-tag .currency {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .price-tag .amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .price-tag .per {
+            font-size: 0.78rem;
+            color: var(--color-text-muted);
+        }
+
+        .stay-type-bar {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .stay-type-chip {
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1.5px solid var(--color-border);
+            background: var(--color-white);
+            cursor: default;
+            transition: all var(--transition);
+            color: var(--color-text);
+        }
+
+        .stay-type-chip.active {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        .badge-luxury {
+            background: #f9f3e5;
+            color: #b5860d;
+            border: 1px solid #e8d5a0;
+        }
+
+        .badge-eco {
+            background: #eaf6ed;
+            color: #1a7a45;
+            border: 1px solid #a3d9b1;
+        }
+
+        .badge-budget {
+            background: #f0f5ff;
+            color: #1a4db5;
+            border: 1px solid #a3bce8;
+        }
+
+        .badge-resort {
+            background: #fef0f0;
+            color: #b51a1a;
+            border: 1px solid #e8a3a3;
+        }
+
+        .hotel-badge-type {
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .hotel-features-list {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: var(--spacing-sm) 0 var(--spacing-md);
+        }
+
+        .h-feature {
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            background: var(--color-bg-alt);
+            border-radius: var(--radius-full);
+            color: var(--color-text-light);
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+
+        .hotel-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+            gap: var(--spacing-sm);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-logo" aria-label="Discover Bali - Home">
+                    <i class="fas fa-leaf" style="color:#0F4C5C;"></i> Discover Bali
+                </a>
+                <ul class="nav-links" role="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="attractions.html">Attractions</a></li>
+                    <li><a href="accommodation.html" class="active" aria-current="page">Accommodation</a></li>
+                    <li><a href="food.html">Food</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="contact.html" class="btn btn-teal btn-sm nav-cta">Plan Your Trip</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero hero-sm" aria-label="Accommodation hero">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1800&q=80"
+                alt="Luxury Bali resort villa with infinity pool overlooking lush tropical jungle" class="hero-bg"
+                loading="eager" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content page-hero-content">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span aria-hidden="true">›</span>
+                    <span aria-current="page">Accommodation</span>
+                </nav>
+                <div class="hero-badge"><i class="fas fa-hotel"></i> Where to Stay</div>
+                <h1 class="hero-title">Find Your Perfect Stay in Bali</h1>
+                <p class="hero-subtitle">
+                    From private jungle villas to beachfront resorts — every budget, every style, every dream
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SEARCH BAR ===== -->
+        <div class="search-bar-wrapper">
+            <div class="container">
+                <div class="search-bar" role="search" aria-label="Hotel search">
+                    <div class="search-field">
+                        <label for="search-destination">Destination</label>
+                        <input type="text" id="search-destination" class="search-input" placeholder="Where in Bali?"
+                            readonly aria-readonly="true" />
+                    </div>
+                    <div class="search-field">
+                        <label for="search-checkin">Check-in</label>
+                        <input type="date" id="search-checkin" class="search-input" readonly aria-readonly="true" />
+                    </div>
+                    <div class="search-field">
+                        <label for="search-checkout">Check-out</label>
+                        <input type="date" id="search-checkout" class="search-input" readonly aria-readonly="true" />
+                    </div>
+                    <div class="search-field" style="min-width:100px;max-width:130px;">
+                        <label for="search-guests">Guests</label>
+                        <input type="number" id="search-guests" class="search-input" placeholder="2" min="1" max="20"
+                            readonly aria-readonly="true" />
+                    </div>
+                    <div class="search-field" style="min-width:auto;flex:0;">
+                        <label style="visibility:hidden;display:block;">Search</label>
+                        <button class="btn btn-primary" type="button" aria-label="Search for hotels">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FEATURED HOTELS ===== -->
+        <section class="section" style="padding-top:var(--spacing-xl);" aria-labelledby="hotels-heading">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-label">Curated Picks</span>
+                    <h2 class="section-title" id="hotels-heading">Featured Hotels &amp; Stays</h2>
+                    <div class="divider divider-left"></div>
+                    <p class="section-intro"
+                        style="color:var(--color-text-light);font-size:1rem;margin-bottom:var(--spacing-xl);">
+                        Hand-selected for quality, value, and authentic Bali character — our top accommodation picks
+                        across the island.
+                    </p>
+
+                    <div class="stay-type-bar" role="navigation" aria-label="Filter by stay type">
+                        <span class="stay-type-chip active">All Stays</span>
+                        <span class="stay-type-chip">Luxury Resorts</span>
+                        <span class="stay-type-chip">Eco Lodges</span>
+                        <span class="stay-type-chip">Boutique Hotels</span>
+                        <span class="stay-type-chip">Villas</span>
+                        <span class="stay-type-chip">Hostels</span>
+                    </div>
+                </header>
+
+                <div class="hotels-grid">
+
+                    <article class="hotel-card">
+                        <div class="hotel-card-img">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80"
+                                alt="The Seminyak Resort pool villa with private infinity pool and ocean view at dusk"
+                                loading="lazy" />
+                            <span class="hotel-badge">4.8 ★</span>
+                        </div>
+                        <div class="hotel-card-body">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                                <h3>The Seminyak Resort</h3>
+                                <span class="hotel-badge-type badge-luxury">Luxury</span>
+                            </div>
+                            <div class="hotel-location"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span> Seminyak, South Bali</div>
+                            <div class="hotel-features-list">
+                                <span class="h-feature"><i class="fas fa-water"></i> Infinity Pool</span>
+                                <span class="h-feature"><i class="fas fa-utensils"></i> Breakfast</span>
+                                <span class="h-feature"><i class="fas fa-spa"></i> Spa</span>
+                                <span class="h-feature"><i class="fas fa-umbrella-beach"></i> Beach Access</span>
+                            </div>
+                            <p style="font-size:0.88rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                A premier beachfront property featuring stunning infinity pools, world-class dining, and
+                                private villa suites with butler service. The epitome of Bali luxury.
+                            </p>
+                            <div class="hotel-card-footer">
+                                <div>
+                                    <div class="price-tag">
+                                        <span class="currency">$</span>
+                                        <span class="amount">280</span>
+                                        <span class="per">/ night</span>
+                                    </div>
+                                    <div class="hotel-star-rating" aria-label="4.8 out of 5 stars">
+                                        <span class="stars" aria-hidden="true" style="font-size:0.78rem;">★★★★★</span>
+                                        <span style="font-size:0.78rem;color:var(--color-text-muted);">4.8 (342
+                                            reviews)</span>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm">View Deal</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hotel-card">
+                        <div class="hotel-card-img">
+                            <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&q=80"
+                                alt="Ubud Eco Lodge bamboo villa surrounded by terraced rice paddies and jungle"
+                                loading="lazy" />
+                            <span class="hotel-badge">4.6 ★</span>
+                        </div>
+                        <div class="hotel-card-body">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                                <h3>Ubud Eco Lodge</h3>
+                                <span class="hotel-badge-type badge-eco">Eco</span>
+                            </div>
+                            <div class="hotel-location"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span> Ubud, Central Bali</div>
+                            <div class="hotel-features-list">
+                                <span class="h-feature"><i class="fas fa-leaf"></i> Rice Field Views</span>
+                                <span class="h-feature"><i class="fas fa-utensils"></i> Breakfast</span>
+                                <span class="h-feature"><i class="fas fa-spa"></i> Yoga</span>
+                                <span class="h-feature"><i class="fas fa-recycle"></i> Eco-Certified</span>
+                            </div>
+                            <p style="font-size:0.88rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                An award-winning eco retreat nestled among rice paddies, built entirely from sustainable
+                                bamboo. Wake to birdsong and enjoy organic farm-to-table meals.
+                            </p>
+                            <div class="hotel-card-footer">
+                                <div>
+                                    <div class="price-tag">
+                                        <span class="currency">$</span>
+                                        <span class="amount">95</span>
+                                        <span class="per">/ night</span>
+                                    </div>
+                                    <div class="hotel-star-rating" aria-label="4.6 out of 5 stars">
+                                        <span class="stars" aria-hidden="true" style="font-size:0.78rem;">★★★★☆</span>
+                                        <span style="font-size:0.78rem;color:var(--color-text-muted);">4.6 (218
+                                            reviews)</span>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm">View Deal</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hotel-card">
+                        <div class="hotel-card-img">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80"
+                                alt="Kuta Beach Hostel social lounge area with surfboards and colourful hammocks"
+                                loading="lazy" />
+                            <span class="hotel-badge">4.3 ★</span>
+                        </div>
+                        <div class="hotel-card-body">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                                <h3>Kuta Beach Hostel</h3>
+                                <span class="hotel-badge-type badge-budget">Budget</span>
+                            </div>
+                            <div class="hotel-location"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span> Kuta, South Bali</div>
+                            <div class="hotel-features-list">
+                                <span class="h-feature"><i class="fas fa-umbrella-beach"></i> Beach Nearby</span>
+                                <span class="h-feature"><i class="fas fa-utensils"></i> Breakfast</span>
+                                <span class="h-feature"><i class="fas fa-wifi"></i> Free WiFi</span>
+                                <span class="h-feature"><i class="fas fa-water"></i> Surf Rental</span>
+                            </div>
+                            <p style="font-size:0.88rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                The most social budget stay in Kuta — perfect for young travellers and surf enthusiasts.
+                                Steps from the beach with a lively rooftop bar and communal kitchen.
+                            </p>
+                            <div class="hotel-card-footer">
+                                <div>
+                                    <div class="price-tag">
+                                        <span class="currency">$</span>
+                                        <span class="amount">25</span>
+                                        <span class="per">/ night</span>
+                                    </div>
+                                    <div class="hotel-star-rating" aria-label="4.3 out of 5 stars">
+                                        <span class="stars" aria-hidden="true" style="font-size:0.78rem;">★★★★☆</span>
+                                        <span style="font-size:0.78rem;color:var(--color-text-muted);">4.3 (891
+                                            reviews)</span>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm">View Deal</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="hotel-card">
+                        <div class="hotel-card-img">
+                            <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600&q=80"
+                                alt="Nusa Dua Grand Resort grand lobby with tropical floral decorations and ocean beyond"
+                                loading="lazy" />
+                            <span class="hotel-badge">4.9 ★</span>
+                        </div>
+                        <div class="hotel-card-body">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                                <h3>Nusa Dua Grand</h3>
+                                <span class="hotel-badge-type badge-resort">Resort</span>
+                            </div>
+                            <div class="hotel-location"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span> Nusa Dua, South Bali</div>
+                            <div class="hotel-features-list">
+                                <span class="h-feature"><i class="fas fa-water"></i> Multiple Pools</span>
+                                <span class="h-feature"><i class="fas fa-utensils"></i> Full Board</span>
+                                <span class="h-feature"><i class="fas fa-umbrella-beach"></i> Private Beach</span>
+                                <span class="h-feature"><i class="fas fa-racquet"></i> Tennis</span>
+                            </div>
+                            <p style="font-size:0.88rem;color:var(--color-text-light);margin-bottom:var(--spacing-md);">
+                                The pinnacle of Bali luxury — a palatial 5-star resort with private beach, six
+                                restaurants, championship tennis courts, and the most comprehensive spa in Bali.
+                            </p>
+                            <div class="hotel-card-footer">
+                                <div>
+                                    <div class="price-tag">
+                                        <span class="currency">$</span>
+                                        <span class="amount">450</span>
+                                        <span class="per">/ night</span>
+                                    </div>
+                                    <div class="hotel-star-rating" aria-label="4.9 out of 5 stars">
+                                        <span class="stars" aria-hidden="true" style="font-size:0.78rem;">★★★★★</span>
+                                        <span style="font-size:0.78rem;color:var(--color-text-muted);">4.9 (567
+                                            reviews)</span>
+                                    </div>
+                                </div>
+                                <a href="contact.html" class="btn btn-primary btn-sm">View Deal</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMPARISON TABLE ===== -->
+        <section class="section section-alt" aria-labelledby="comparison-heading">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-label">Quick Compare</span>
+                    <h2 class="section-title" id="comparison-heading">Hotel Comparison at a Glance</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Compare our featured properties side-by-side to find the perfect match
+                        for your trip.</p>
+                </header>
+
+                <div class="table-wrap" role="region" aria-label="Hotel comparison table" tabindex="0">
+                    <table>
+                        <caption class="sr-only"
+                            style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">
+                            Comparison of Bali hotels showing area, price per night, rating, pool availability, and
+                            breakfast inclusion</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Hotel</th>
+                                <th scope="col">Area</th>
+                                <th scope="col">Price / Night</th>
+                                <th scope="col">Rating</th>
+                                <th scope="col">Pool</th>
+                                <th scope="col">Breakfast</th>
+                                <th scope="col">Spa</th>
+                                <th scope="col">Book</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>The Seminyak Resort</strong></td>
+                                <td>Seminyak</td>
+                                <td><strong>$280</strong></td>
+                                <td class="table-rating" aria-label="4.8 stars">4.8 ★★★★★</td>
+                                <td class="check-yes" aria-label="Pool available">✓</td>
+                                <td class="check-yes" aria-label="Breakfast included">✓</td>
+                                <td class="check-yes" aria-label="Spa available">✓</td>
+                                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ubud Eco Lodge</strong></td>
+                                <td>Ubud</td>
+                                <td><strong>$95</strong></td>
+                                <td class="table-rating" aria-label="4.6 stars">4.6 ★★★★☆</td>
+                                <td class="check-yes" aria-label="Pool available">✓</td>
+                                <td class="check-yes" aria-label="Breakfast included">✓</td>
+                                <td class="check-no" aria-label="No spa">✗</td>
+                                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kuta Beach Hostel</strong></td>
+                                <td>Kuta</td>
+                                <td><strong>$25</strong></td>
+                                <td class="table-rating" aria-label="4.3 stars">4.3 ★★★★☆</td>
+                                <td class="check-no" aria-label="No pool">✗</td>
+                                <td class="check-yes" aria-label="Breakfast included">✓</td>
+                                <td class="check-no" aria-label="No spa">✗</td>
+                                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nusa Dua Grand</strong></td>
+                                <td>Nusa Dua</td>
+                                <td><strong>$450</strong></td>
+                                <td class="table-rating" aria-label="4.9 stars">4.9 ★★★★★</td>
+                                <td class="check-yes" aria-label="Pool available">✓</td>
+                                <td class="check-yes" aria-label="Breakfast included">✓</td>
+                                <td class="check-yes" aria-label="Spa available">✓</td>
+                                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Canggu Surf Villa</strong></td>
+                                <td>Canggu</td>
+                                <td><strong>$145</strong></td>
+                                <td class="table-rating" aria-label="4.7 stars">4.7 ★★★★☆</td>
+                                <td class="check-yes" aria-label="Pool available">✓</td>
+                                <td class="check-no" aria-label="No breakfast">✗</td>
+                                <td class="check-no" aria-label="No spa">✗</td>
+                                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p
+                    style="font-size:0.82rem;color:var(--color-text-muted);margin-top:var(--spacing-md);text-align:center;">
+                    * Prices are indicative and subject to availability. All prices in USD per night for double
+                    occupancy.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== BOOKING CTA ===== -->
+        <section class="section" aria-labelledby="accom-cta-heading">
+            <div class="container text-center">
+                <span class="section-label">Need Help Choosing?</span>
+                <h2 class="section-title" id="accom-cta-heading">Our Team Will Find Your Perfect Stay</h2>
+                <div class="divider"></div>
+                <p class="section-subtitle" style="margin-bottom:32px;">
+                    Tell us your travel style, budget, and dates — we'll match you with the ideal property and negotiate
+                    the best rate.
+                </p>
+                <a href="contact.html" class="btn btn-primary">Get a Free Recommendation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-leaf"></i> Discover Bali</div>
+                    <p>Your trusted guide to the Island of the Gods. We've been connecting travellers with authentic
+                        Bali experiences since 2009, with a commitment to responsible tourism and local community
+                        support.</p>
+                    <div class="footer-social" role="list" aria-label="Social media links">
+                        <a href="#" class="social-btn" aria-label="Follow us on Instagram" role="listitem"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Facebook" role="listitem"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-btn" aria-label="Follow us on Twitter" role="listitem"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="Watch us on YouTube" role="listitem"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="attractions.html">Attractions</a></li>
+                        <li><a href="accommodation.html">Accommodation</a></li>
+                        <li><a href="food.html">Food Guide</a></li>
+                        <li><a href="tips.html">Travel Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <ul role="list">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Responsible Tourism</a></li>
+                        <li><a href="#">Press &amp; Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <address style="font-style:normal;">
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span><span>Jl. Laksmana No. 22,
+                                Seminyak, Bali 80361</span></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-phone"></i></span><a
+                                href="tel:+623611234567">+62 361 123 4567</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-envelope"></i></span><a
+                                href="mailto:hello@discoverbali.com">hello@discoverbali.com</a></div>
+                        <div class="footer-contact-item"><span aria-hidden="true"><i class="fas fa-clock"></i></span><span>Mon–Fri 9AM–6PM
+                                WITA</span></div>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Discover Bali. All rights reserved.</p>
+                
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top back-to-top-always" aria-label="Back to top">↑</a>
+
+</body>
+
+</html>
